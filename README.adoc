@@ -1,0 +1,57 @@
+= RelatonIev Refactor IEV reference
+
+Metanorma references IEV as a single source, IEC 60050. In reality, IEC 60050 is dozens of separate documents, each with their own part number (corresponding to the starting number of the clause reference; so IEV clause 101-2-3 is actually IEC 60050-101 clause 101-2-3.) This gem helps expand the single IEV reference out into all the references it actually corresponds to in the given document.
+
+== Installation
+
+Add this line to your application's Gemfile:
+
+[source,ruby]
+----
+gem 'relaton-iev'
+----
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install relaton-iev
+
+== Usage
+
+[source,ruby]
+----
+require 'relaton_iev'
+
+bibdb = Relaton::Db.new nil, nil
+xmldoc = Nokogiri::XML <<~XML_DOC
+      <standard-document>
+        <bibitem type="inline" bibitemid="a" docidentifier="IEC 60050:2011">
+          <eref citeas="IEC 60050:2011">
+            <locality type="clause">
+            <referenceFrom>102-01-01</referenceFrom>
+            </locality>
+          </eref>
+        </bibitem>
+        <sections/>
+      </standard-document>
+    XML_DOC
+RelatonIev.iev_cleanup(xmldoc, bibdb)
+=> [#<Nokogiri::XML::Element:...
+----
+
+== Development
+
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+== Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/metanorma/relaton-iev.
+
+== License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
