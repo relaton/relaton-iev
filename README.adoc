@@ -1,6 +1,12 @@
 = RelatonIev Refactor IEV reference
 
-Metanorma references IEV as a single source, IEC 60050. In reality, IEC 60050 is dozens of separate documents, each with their own part number (corresponding to the starting number of the clause reference; so IEV clause 101-2-3 is actually IEC 60050-101 clause 101-2-3.) This gem helps expand the single IEV reference out into all the references it actually corresponds to in the given document.
+image:https://img.shields.io/gem/v/relaton-iev.svg["Gem Version", link="https://rubygems.org/gems/relaton-iev"]
+image:https://img.shields.io/travis/metanorma/relaton-iev/master.svg["Build Status", link="https://travis-ci.org/metanorma/relaton-iev"]
+image:https://codeclimate.com/github/metanorma/relaton-iev/badges/gpa.svg["Code Climate", link="https://codeclimate.com/github/metanorma/relaton-iev"]
+image:https://ci.appveyor.com/api/projects/status/qdadxv7rqfy33p66?svg=true["Appveyor Build Status", link="https://ci.appveyor.com/project/ribose/relaton-iev"]
+
+
+Metanorma references IEV as a single source, IEC 60050. In reality, IEC 60050 is dozens of separate documents, each with their own part number (corresponding to the starting number of the clause reference; so IEV clause 101-2-3 is actually IEC 60050-101 clause 101-2-3.) This gem helps rewrites the single IEV reference in a Metanorma document, out into all the references it actually corresponds to in the given document. It does so by parsing all first-level clauses in citations to IEV, replacing each by a reference to the IEC 60050 part corresponding to that clause, then looking up each of the IEC 60050 part documents using `relaton-iec`, and inserting those references into the XML document.
 
 == Installation
 

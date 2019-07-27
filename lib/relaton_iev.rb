@@ -38,7 +38,7 @@ module RelatonIev
         parts.sort.each do |p|
           hit = bibdb&.fetch("IEC 60050-#{p}", nil, keep_year: true) || next
           new_iev += hit.to_xml.sub(/ id="[^"]+"/, %{ id="IEC60050-#{p}"})
-          date = hit.dates[0].on.year
+          date = hit.date[0].on.year
           xmldoc.xpath("//*[@citeas = 'IEC 60050-#{p}:2011']").each do |x|
             x["citeas"] = x["citeas"].sub(/:2011$/, ":#{date}")
           end
@@ -50,7 +50,7 @@ module RelatonIev
       # @param bibdb [Relaton::Db, NilClass]
       # @return [Nokogiri::XML::Element]
       def iev_cleanup(xmldoc, bibdb = nil)
-        iev = xmldoc.at("//bibitem[@docidentifier = 'IEC 60050:2011']") || return
+        iev = xmldoc.at("//bibitem[docidentifier = 'IEC 60050:2011']") || return
         parts = linksIev2iec60050part(xmldoc)
         refsIev2iec60050part(xmldoc, parts, iev, bibdb)
       end
