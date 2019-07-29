@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "vcr"
   spec.add_development_dependency "webmock"
+  spec.add_development_dependency "equivalent-xml", "~> 0.6"
 
   spec.add_dependency "relaton", "~> 0.5.0"
 end

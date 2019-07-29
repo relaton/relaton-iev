@@ -22,6 +22,8 @@ GEM
     debase-ruby_core_source (0.10.5)
     diff-lcs (1.3)
     docile (1.3.2)
+    equivalent-xml (0.6.0)
+      nokogiri (>= 1.4.3)
     gb-agencies (0.0.5)
     hashdiff (1.0.0)
     httpclient (2.8.3)
@@ -48,14 +50,14 @@ GEM
       relaton-iso-bib (~> 0.3.0)
       relaton-itu (~> 0.3.0)
       relaton-nist (~> 0.3.0)
-    relaton-bib (0.3.0)
+    relaton-bib (0.3.1)
       addressable
       nokogiri (~> 1.10)
     relaton-gb (0.6.0)
       cnccs (~> 0.1.1)
       gb-agencies (~> 0.0.1)
       relaton-iso-bib (~> 0.3.0)
-    relaton-iec (0.4.0)
+    relaton-iec (0.4.1)
       addressable
       relaton-iso-bib (~> 0.3.0)
     relaton-ietf (0.6.0)
@@ -63,7 +65,7 @@ GEM
     relaton-iso (0.6.0)
       relaton-iec (~> 0.4.0)
       relaton-iso-bib (~> 0.3.0)
-    relaton-iso-bib (0.3.0)
+    relaton-iso-bib (0.3.1)
       isoics (~> 0.1.6)
       relaton-bib (~> 0.3.0)
       ruby_deep_clone (~> 0.8.0)
@@ -107,6 +109,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 2.0)
   debase
+  equivalent-xml (~> 0.6)
   pry-byebug
   rake (~> 10.0)
   relaton-iev!

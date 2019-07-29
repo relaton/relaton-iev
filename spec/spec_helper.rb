@@ -5,6 +5,8 @@ end
 
 require "bundler/setup"
 require "relaton_iev"
+require "rspec/matchers"
+require "equivalent-xml"
 
 Dir["./spec/support/**/*.rb"].each { |f| require f }
 
