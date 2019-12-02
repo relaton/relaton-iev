@@ -89,7 +89,7 @@ GEM
     ruby-debug-ide (0.7.0)
       rake (>= 0.8.1)
     ruby_deep_clone (0.8.0)
-    rubyzip (1.2.4)
+    rubyzip (2.0.0)
     safe_yaml (1.0.5)
     simplecov (0.17.0)
       docile (~> 1.1)
