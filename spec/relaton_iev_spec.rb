@@ -29,6 +29,7 @@ RSpec.describe RelatonIev do
              </locality>
            </eref>
          <bibitem id="IEC60050-102" type="standard">
+         <fetched>#{Date.today.to_s}</fetched>
          <title type="title-main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV)</title>
          <title type="title-part" format="text/plain" language="en" script="Latn">Part 102: Mathematics - General concepts and linear algebra</title>
          <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) &#x2013; Part 102: Mathematics - General concepts and linear algebra</title>
