@@ -65,6 +65,7 @@ RSpec.describe RelatonIev do
              </organization>
            </owner>
          </copyright>
+         <place>Geneva</place>
        </bibitem>
          <sections/>
        </standard-document>
