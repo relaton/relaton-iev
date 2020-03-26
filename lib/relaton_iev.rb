@@ -37,13 +37,26 @@ module RelatonIev
         new_iev = ""
         parts.sort.each do |p|
           hit = bibdb&.fetch("IEC 60050-#{p}", nil, keep_year: true) || next
-          new_iev += hit.to_xml.sub(/ id="[^"]+"/, %{ id="IEC60050-#{p}"})
           date = hit.date[0].on.year
+          new_iev += refsIev2iec60050part1(xmldoc, p, hit)
           xmldoc.xpath("//*[@citeas = 'IEC 60050-#{p}:2011']").each do |x|
             x["citeas"] = x["citeas"].sub(/:2011$/, ":#{date}")
           end
         end
         iev.replace(new_iev)
+      end
+
+      def refsIev2iec60050part1(xmldoc, p, hit)
+        date = hit.date[0].on.year
+        return "" if already_contains_ref(xmldoc, p, date)
+        id = xmldoc.at("//bibitem[@id = 'IEC60050-#{p}']") ? "-1" : ""
+        hit.to_xml.sub(/ id="[^"]+"/, %{ id="IEC60050-#{p}#{id}"})
+      end
+
+      def already_contains_ref(xmldoc, p, date)
+        xmldoc.at("//bibliography//bibitem[not(ancestor::bibitem)]/"\
+                  "docidentifier[@type = 'IEC']"\
+                  "[text() = 'IEC 60050-#{p}:#{date}']")
       end
 
       # @param xmldoc [Nokogiri::XML::Document]
