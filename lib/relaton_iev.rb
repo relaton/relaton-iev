@@ -16,7 +16,7 @@ module RelatonIev
         parts = Set.new
         xmldoc.xpath("//eref[@citeas = 'IEC 60050:2011'] | "\
                      "//origin[@citeas = 'IEC 60050:2011']").each do |x|
-          cl = x&.at("./locality[@type = 'clause']/referenceFrom")&.text || next
+          cl = x&.at(".//locality[@type = 'clause']/referenceFrom")&.text || next
           m = /^(\d+)/.match cl || next
           parts << m[0]
           x["citeas"] = x["citeas"].sub(/60050/, "60050-#{m[0]}")

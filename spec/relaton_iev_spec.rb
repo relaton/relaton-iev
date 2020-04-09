@@ -134,9 +134,11 @@ end
     xmldoc = Nokogiri::XML <<~XML_DOC
          <standard-document>
           <eref citeas="IEC 60050:2011">
+          <localityStack>
             <locality type="clause">
             <referenceFrom>102-01-01</referenceFrom>
             </locality>
+          </localityStack>
           </eref>
         <sections/>
         <bibliography>
@@ -160,9 +162,11 @@ XML_DOC
       expect(xmldoc.to_xml).to be_equivalent_to <<~OUTPUT
       <standard-document>
            <eref citeas="IEC 60050-102:2007" bibitemid="IEC60050-102">
+          <localityStack>
              <locality type="clause">
              <referenceFrom>102-01-01</referenceFrom>
              </locality>
+          </localityStack>
            </eref>
          <sections/>
          <bibliography>
