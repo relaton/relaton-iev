@@ -37,7 +37,7 @@ module RelatonIev
         new_iev = ""
         parts.sort.each do |p|
           hit = bibdb&.fetch("IEC 60050-#{p}", nil, keep_year: true) || next
-          date = hit.date[0].on.year
+          date = hit.date[0].on(:year)
           new_iev += refsIev2iec60050part1(xmldoc, p, hit)
           xmldoc.xpath("//*[@citeas = 'IEC 60050-#{p}:2011']").each do |x|
             x["citeas"] = x["citeas"].sub(/:2011$/, ":#{date}")
@@ -47,7 +47,7 @@ module RelatonIev
       end
 
       def refsIev2iec60050part1(xmldoc, p, hit)
-        date = hit.date[0].on.year
+        date = hit.date[0].on(:year)
         return "" if already_contains_ref(xmldoc, p, date)
         id = xmldoc.at("//bibitem[@id = 'IEC60050-#{p}']") ? "-1" : ""
         hit.to_xml.sub(/ id="[^"]+"/, %{ id="IEC60050-#{p}#{id}"})

@@ -31,5 +31,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "webmock"
   spec.add_development_dependency "equivalent-xml", "~> 0.6"
 
-  spec.add_dependency "relaton", "~> 1"
+  spec.add_dependency "relaton", ">= 1.6"
 end
