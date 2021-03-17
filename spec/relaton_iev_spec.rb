@@ -55,7 +55,7 @@ RSpec.describe RelatonIev do
        It has the status of a horizontal standard in accordance with IEC Guide 108.</abstract>
          <status>
            <stage>60</stage>
-           <substage>60</substage>
+           <substage>00</substage>
          </status>
          <copyright>
            <from>2007</from>
@@ -200,7 +200,7 @@ XML_DOC
        It has the status of a horizontal standard in accordance with IEC Guide 108.</abstract>
          <status>
            <stage>60</stage>
-           <substage>60</substage>
+           <substage>00</substage>
          </status>
          <copyright>
            <from>2007</from>
@@ -297,7 +297,7 @@ XML_DOC
        It has the status of a horizontal standard in accordance with IEC Guide 108.</abstract>
          <status>
            <stage>60</stage>
-           <substage>60</substage>
+           <substage>00</substage>
          </status>
          <copyright>
            <from>2007</from>
