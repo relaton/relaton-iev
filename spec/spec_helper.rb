@@ -8,7 +8,7 @@ require "relaton_iev"
 require "rspec/matchers"
 require "equivalent-xml"
 
-Dir["./spec/support/**/*.rb"].each { |f| require f }
+Dir["./spec/support/**/*.rb"].sort.each { |f| require f }
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
