@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.4.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.5.0")
 
   # spec.add_development_dependency "debase"
   spec.add_development_dependency "pry-byebug"
