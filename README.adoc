@@ -1,9 +1,7 @@
 = RelatonIev Refactor IEV reference
 
 image:https://img.shields.io/gem/v/relaton-iev.svg["Gem Version", link="https://rubygems.org/gems/relaton-iev"]
-image:https://github.com/relaton/relaton-iev/workflows/macos/badge.svg["Build Status (macOS)", link="https://github.com/relaton/relaton-iev/actions?workflow=macos"]
-image:https://github.com/relaton/relaton-iev/workflows/windows/badge.svg["Build Status (Windows)", link="https://github.com/relaton/relaton-iev/actions?workflow=windows"]
-image:https://github.com/relaton/relaton-iev/workflows/ubuntu/badge.svg["Build Status (Ubuntu)", link="https://github.com/relaton/relaton-iev/actions?workflow=ubuntu"]
+image:https://github.com/relaton/relaton-iev/workflows/rake/badge.svg["Build Status", link="https://github.com/relaton/relaton-iev/actions?workflow=rake"]
 image:https://codeclimate.com/github/relaton/relaton-iev/badges/gpa.svg["Code Climate", link="https://codeclimate.com/github/relaton/relaton-iev"]
 image:https://img.shields.io/github/issues-pr-raw/relaton/relaton-iev.svg["Pull Requests", link="https://github.com/relaton/relaton-iev/pulls"]
 image:https://img.shields.io/github/commits-since/relaton/relaton-iev/latest.svg["Commits since latest",link="https://github.com/relaton/relaton-iev/releases"]
