@@ -35,7 +35,7 @@ RSpec.describe RelatonIev do
           <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) - Part 102: Mathematics -- General concepts and linear algebra</title>
           <uri type="src">https://webstore.iec.ch/publication/160</uri>
           <uri type="obp">/preview/info_iec60050-102%7Bed1.0%7Db.pdf</uri>
-          <docidentifier type="IEC">IEC 60050-102:2007</docidentifier>
+          <docidentifier type="IEC" primary="true">IEC 60050-102:2007</docidentifier>
           <docidentifier type="URN">urn:iec:std:iec:60050-102:2007:::en</docidentifier>
           <date type="published">
             <on>2007-08-27</on>
@@ -97,7 +97,7 @@ RSpec.describe RelatonIev do
            <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) &#x2013; Part 102: Mathematics - General concepts and linear algebra</title>
            <uri type="src">https://webstore.iec.ch/publication/160</uri>
            <uri type="obp">/preview/info_iec60050-102%7Bed1.0%7Db.pdf</uri>
-           <docidentifier type="IEC">IEC 60050-102:2007</docidentifier>
+           <docidentifier type="IEC" primary="true">IEC 60050-102:2007</docidentifier>
           </bibitem>
           </references>
           </bibliography>
@@ -121,7 +121,7 @@ RSpec.describe RelatonIev do
             <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) &#x2013; Part 102: Mathematics - General concepts and linear algebra</title>
             <uri type="src">https://webstore.iec.ch/publication/160</uri>
             <uri type="obp">/preview/info_iec60050-102%7Bed1.0%7Db.pdf</uri>
-            <docidentifier type="IEC">IEC 60050-102:2007</docidentifier>
+            <docidentifier type="IEC" primary="true">IEC 60050-102:2007</docidentifier>
            </bibitem>
            </references>
            </bibliography>
@@ -154,7 +154,7 @@ RSpec.describe RelatonIev do
            <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) &#x2013; Part 102: Mathematics - General concepts and linear algebra</title>
            <uri type="src">https://webstore.iec.ch/publication/160</uri>
            <uri type="obp">/preview/info_iec60050-102%7Bed1.0%7Db.pdf</uri>
-           <docidentifier type="IEC">IEC 60050-102:2008</docidentifier>
+           <docidentifier type="IEC" primary="true">IEC 60050-102:2008</docidentifier>
           </bibitem>
           </references>
           </bibliography>
@@ -180,7 +180,7 @@ RSpec.describe RelatonIev do
           <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) - Part 102: Mathematics -- General concepts and linear algebra</title>
           <uri type="src">https://webstore.iec.ch/publication/160</uri>
           <uri type="obp">/preview/info_iec60050-102%7Bed1.0%7Db.pdf</uri>
-          <docidentifier type="IEC">IEC 60050-102:2007</docidentifier>
+          <docidentifier type="IEC" primary="true">IEC 60050-102:2007</docidentifier>
           <docidentifier type="URN">urn:iec:std:iec:60050-102:2007:::en</docidentifier>
           <date type="published">
             <on>2007-08-27</on>
@@ -220,7 +220,7 @@ RSpec.describe RelatonIev do
            <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) &#x2013; Part 102: Mathematics - General concepts and linear algebra</title>
            <uri type="src">https://webstore.iec.ch/publication/160</uri>
            <uri type="obp">/preview/info_iec60050-102%7Bed1.0%7Db.pdf</uri>
-           <docidentifier type="IEC">IEC 60050-102:2008</docidentifier>
+           <docidentifier type="IEC" primary="true">IEC 60050-102:2008</docidentifier>
           </bibitem>
           </references>
           </bibliography>
@@ -252,7 +252,7 @@ RSpec.describe RelatonIev do
            <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) &#x2013; Part 102: Mathematics - General concepts and linear algebra</title>
            <uri type="src">https://webstore.iec.ch/publication/160</uri>
            <uri type="obp">/preview/info_iec60050-102%7Bed1.0%7Db.pdf</uri>
-           <docidentifier type="IEC">IEC 60050-102:2007</docidentifier>
+           <docidentifier type="IEC" primary="true">IEC 60050-102:2007</docidentifier>
           </bibitem>
           </bibitem>
           </references>
@@ -277,7 +277,7 @@ RSpec.describe RelatonIev do
           <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) - Part 102: Mathematics -- General concepts and linear algebra</title>
           <uri type="src">https://webstore.iec.ch/publication/160</uri>
           <uri type="obp">/preview/info_iec60050-102%7Bed1.0%7Db.pdf</uri>
-          <docidentifier type="IEC">IEC 60050-102:2007</docidentifier>
+          <docidentifier type="IEC" primary="true">IEC 60050-102:2007</docidentifier>
           <docidentifier type="URN">urn:iec:std:iec:60050-102:2007:::en</docidentifier>
           <date type="published">
             <on>2007-08-27</on>
@@ -318,7 +318,7 @@ RSpec.describe RelatonIev do
            <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) &#x2013; Part 102: Mathematics - General concepts and linear algebra</title>
            <uri type="src">https://webstore.iec.ch/publication/160</uri>
            <uri type="obp">/preview/info_iec60050-102%7Bed1.0%7Db.pdf</uri>
-           <docidentifier type="IEC">IEC 60050-102:2007</docidentifier>
+           <docidentifier type="IEC" primary="true">IEC 60050-102:2007</docidentifier>
           </bibitem>
           </bibitem>
           </references>
