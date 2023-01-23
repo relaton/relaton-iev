@@ -1,10 +1,15 @@
 require "relaton"
 require "relaton_iev/version"
+require "htmlentities"
 
 module RelatonIev
   class Error < StandardError; end
 
   class << self
+    IEVPATH = <<~IEV.strip.freeze
+      //*[@citeas = 'IEC 60050:2011' or @citeas = 'IEC 60050:2011' or @citeas = 'IEC&#xa0;60050:2011' or @citeas = 'IEC&#xA0;60050:2011']
+    IEV
+
     # converts generic IEV citation to citation of IEC 60050-n
     # assumes IEV citations are of form
     # <eref type="inline" bibitemid="a" citeas="IEC 60050">
@@ -15,12 +20,12 @@ module RelatonIev
     # @return [Set<String>]
     def links_iev2iec60050part(xmldoc)
       parts = Set.new
-      xmldoc.xpath("//*[@citeas = 'IEC 60050:2011']").each do |x|
+      xmldoc.xpath(IEVPATH).each do |x|
         m = x&.at(".//locality[@type = 'clause']/referenceFrom")&.text
           &.sub(/^(\d+).*$/, "\\1") or next
 
         parts << m
-        x["citeas"] = x["citeas"].sub(/60050/, "60050-#{m}")
+        x["citeas"] = @c.decode(x["citeas"]).sub(/60050/, "60050-#{m}")
         x["bibitemid"] = "IEC60050-#{m}"
       end
       parts
@@ -29,18 +34,19 @@ module RelatonIev
     # replace generic IEV reference with references to all extracted
     # IEV parts
     #
-    # @param xmodoc [Nokogiri::XML::Document]
+    # @param xml [Nokogiri::XML::Document]
     # @param parts [Set<String>]
     # @param iev [Nokogiri::XML::Element]
     # @param bibdb [Relaton::Db, NilClass]
     # @return [Nokogiri::XML::Element]
-    def refs_iev2iec60050part(xmldoc, parts, bibdb = nil)
+    def refs_iev2iec60050part(xml, parts, bibdb = nil)
       new_iev = ""
       parts.sort.each do |p|
         hit = bibdb&.fetch("IEC 60050-#{p}", nil, keep_year: true) or next
-        new_iev += refs_iev2iec60050part1(xmldoc, p, hit)
-        xmldoc.xpath("//*[@citeas = 'IEC 60050-#{p}:2011']").each do |x|
-          x["citeas"] = x["citeas"].sub(/:2011$/, ":#{hit.date[0].on(:year)}")
+        new_iev += refs_iev2iec60050part1(xml, p, hit)
+        xml.xpath(IEVPATH.gsub(/60050/, "60050-#{p}")).each do |x|
+          x["citeas"] = @c.decode(x["citeas"])
+            .sub(/:2011$/, ":#{hit.date[0].on(:year)}")
         end
       end
       new_iev
@@ -55,8 +61,8 @@ module RelatonIev
     end
 
     def already_contains_ref(xmldoc, part, date)
-      xmldoc.at("//bibliography//bibitem[not(ancestor::bibitem)]/"\
-                "docidentifier[@type = 'IEC']"\
+      xmldoc.at("//bibliography//bibitem[not(ancestor::bibitem)]/" \
+                "docidentifier[@type = 'IEC']" \
                 "[text() = 'IEC 60050-#{part}:#{date}']")
     end
 
@@ -64,6 +70,7 @@ module RelatonIev
     # @param bibdb [Relaton::Db, NilClass]
     # @return [Nokogiri::XML::Element]
     def iev_cleanup(xmldoc, bibdb = nil)
+      @c = HTMLEntities.new
       iev = xmldoc.at("//bibitem[docidentifier = 'IEC 60050:2011']") || return
       parts = links_iev2iec60050part(xmldoc)
       iev.replace(refs_iev2iec60050part(xmldoc, parts, bibdb))
