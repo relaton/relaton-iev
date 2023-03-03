@@ -21,7 +21,7 @@ RSpec.describe RelatonIev do
     VCR.use_cassette "iec" do
       xml = RelatonIev.iev_cleanup(xmldoc, bibdb)
       expect(xml.first).to be_instance_of Nokogiri::XML::Element
-      expect(xmldoc.to_xml.gsub(/ schema-version="[^"]+"/, ""))
+      expect(xmldoc.root.to_xml.gsub(/ schema-version="[^"]+"/, ""))
         .to be_equivalent_to <<~OUTPUT
           <standard-document>
               <eref citeas="IEC&#xA0;60050-102:2007" bibitemid="IEC60050-102">
@@ -31,13 +31,12 @@ RSpec.describe RelatonIev do
               </eref>
             <bibitem id="IEC60050-102" type="standard">
             <fetched>#{Date.today}</fetched>
-            <title type="title-main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV)</title>
-            <title type="title-part" format="text/plain" language="en" script="Latn">Part 102: Mathematics -- General concepts and linear algebra</title>
-            <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) - Part 102: Mathematics -- General concepts and linear algebra</title>
+            <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) - Part 102: Mathematics - General concepts and linear algebra</title>
+            <title type="main" format="text/plain" language="fr" script="Latn">Vocabulaire Electrotechnique International (IEV) - Partie 102: Math&#xE9;matiques - Concepts g&#xE9;n&#xE9;raux et alg&#xE8;bre lin&#xE9;aire</title>
             <uri type="src">https://webstore.iec.ch/publication/160</uri>
-            <uri type="obp">/preview/info_iec60050-102%7Bed1.0%7Db.pdf</uri>
+            <uri type="obp">https://webstore.iec.ch/preview/info_iec60050-102{ed1.0}b.pdf</uri>
             <docidentifier type="IEC" primary="true">IEC 60050-102:2007</docidentifier>
-            <docidentifier type="URN">urn:iec:std:iec:60050-102:2007:::en</docidentifier>
+            <docidentifier type="URN">urn:iec:std:iec:60050-102:2007-08:::</docidentifier>
             <date type="published">
               <on>2007-08-27</on>
             </date>
@@ -49,14 +48,14 @@ RSpec.describe RelatonIev do
                 <uri>www.iec.ch</uri>
               </organization>
             </contributor>
-            <edition>1.0</edition>
+            <edition>1</edition>
             <language>en</language>
+            <language>fr</language>
             <script>Latn</script>
-            <abstract format="text/plain" language="en" script="Latn">This part of IEC 60050 gives the general mathematical terminology used in the fields of electricity, electronics and telecommunications, together with basic concepts in linear algebra. It maintains a clear distinction between mathematical concepts and physical concepts, even if some terms are used in both cases. Another part will deal with functions.&#xD;
-          It has the status of a horizontal standard in accordance with IEC Guide 108.</abstract>
+            <abstract format="text/html" language="en" script="Latn">This part of IEC 60050 gives the general mathematical terminology used in the fields of electricity, electronics and telecommunications, together with basic concepts in linear algebra. It maintains a clear distinction between mathematical concepts and physical concepts, even if some terms are used in both cases. Another part will deal with functions.<br/>It has the status of a horizontal standard in accordance with&lt;a href="http://webstore.iec.ch/webstore/webstore.nsf/Artnum_PK/36435?opendocument"&gt;IEC Guide 108.&lt;/&gt;</abstract>
+            <abstract format="text/html" language="fr" script="Latn">Cette partie de la CEI 60050 donne la terminologie math&#xE9;matique g&#xE9;n&#xE9;rale utilis&#xE9;e dans les domaines de l'&#xE9;lectricit&#xE9;, de l'&#xE9;lectronique et des t&#xE9;l&#xE9;communications, ainsi que les concepts fondamentaux d'alg&#xE8;bre lin&#xE9;aire. Elle maintient une distinction nette entre les concepts math&#xE9;matiques et les concepts physiques, m&#xEA;me si certains termes sont employ&#xE9;s dans les deux cas. Une autre partie traitera des fonctions.<br/>Elle a le statut de norme horizontale conform&#xE9;ment au  Guide IEC 108.</abstract>
             <status>
-              <stage>60</stage>
-              <substage>60</substage>
+              <stage>PUBLISHED</stage>
             </status>
             <copyright>
               <from>2007</from>
@@ -136,7 +135,7 @@ RSpec.describe RelatonIev do
     bibdb = Relaton::Db.new nil, nil
     VCR.use_cassette "iec" do
       xmldoc = Nokogiri::XML <<~XML_DOC
-           <standard-document>
+          <standard-document>
             <eref citeas="IEC 60050:2011">
             <localityStack>
               <locality type="clause">
@@ -163,9 +162,9 @@ RSpec.describe RelatonIev do
         </standard-document>
       XML_DOC
       RelatonIev.iev_cleanup(xmldoc, bibdb)
-      expect(xmldoc.to_xml.gsub(/ schema-version="[^"]+"/, ""))
+      expect(xmldoc.root.to_xml.gsub(/ schema-version="[^"]+"/, ""))
         .to be_equivalent_to <<~OUTPUT
-           <standard-document>
+          <standard-document>
               <eref citeas="IEC&#xA0;60050-102:2007" bibitemid="IEC60050-102">
               <localityStack>
                 <locality type="clause">
@@ -178,13 +177,12 @@ RSpec.describe RelatonIev do
             <references>
             <bibitem id="IEC60050-102-1" type="standard">
             <fetched>#{Date.today}</fetched>
-            <title type="title-main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV)</title>
-            <title type="title-part" format="text/plain" language="en" script="Latn">Part 102: Mathematics -- General concepts and linear algebra</title>
-            <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) - Part 102: Mathematics -- General concepts and linear algebra</title>
+            <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) - Part 102: Mathematics - General concepts and linear algebra</title>
+            <title type="main" format="text/plain" language="fr" script="Latn">Vocabulaire Electrotechnique International (IEV) - Partie 102: Math&#xE9;matiques - Concepts g&#xE9;n&#xE9;raux et alg&#xE8;bre lin&#xE9;aire</title>
             <uri type="src">https://webstore.iec.ch/publication/160</uri>
-            <uri type="obp">/preview/info_iec60050-102%7Bed1.0%7Db.pdf</uri>
+            <uri type="obp">https://webstore.iec.ch/preview/info_iec60050-102{ed1.0}b.pdf</uri>
             <docidentifier type="IEC" primary="true">IEC 60050-102:2007</docidentifier>
-            <docidentifier type="URN">urn:iec:std:iec:60050-102:2007:::en</docidentifier>
+            <docidentifier type="URN">urn:iec:std:iec:60050-102:2007-08:::</docidentifier>
             <date type="published">
               <on>2007-08-27</on>
             </date>
@@ -196,14 +194,14 @@ RSpec.describe RelatonIev do
                 <uri>www.iec.ch</uri>
               </organization>
             </contributor>
-            <edition>1.0</edition>
+            <edition>1</edition>
             <language>en</language>
+            <language>fr</language>
             <script>Latn</script>
-            <abstract format="text/plain" language="en" script="Latn">This part of IEC 60050 gives the general mathematical terminology used in the fields of electricity, electronics and telecommunications, together with basic concepts in linear algebra. It maintains a clear distinction between mathematical concepts and physical concepts, even if some terms are used in both cases. Another part will deal with functions.&#xD;
-          It has the status of a horizontal standard in accordance with IEC Guide 108.</abstract>
+            <abstract format="text/html" language="en" script="Latn">This part of IEC 60050 gives the general mathematical terminology used in the fields of electricity, electronics and telecommunications, together with basic concepts in linear algebra. It maintains a clear distinction between mathematical concepts and physical concepts, even if some terms are used in both cases. Another part will deal with functions.<br/>It has the status of a horizontal standard in accordance with&lt;a href="http://webstore.iec.ch/webstore/webstore.nsf/Artnum_PK/36435?opendocument"&gt;IEC Guide 108.&lt;/&gt;</abstract>
+            <abstract format="text/html" language="fr" script="Latn">Cette partie de la CEI 60050 donne la terminologie math&#xE9;matique g&#xE9;n&#xE9;rale utilis&#xE9;e dans les domaines de l'&#xE9;lectricit&#xE9;, de l'&#xE9;lectronique et des t&#xE9;l&#xE9;communications, ainsi que les concepts fondamentaux d'alg&#xE8;bre lin&#xE9;aire. Elle maintient une distinction nette entre les concepts math&#xE9;matiques et les concepts physiques, m&#xEA;me si certains termes sont employ&#xE9;s dans les deux cas. Une autre partie traitera des fonctions.<br/>Elle a le statut de norme horizontale conform&#xE9;ment au  Guide IEC 108.</abstract>
             <status>
-              <stage>60</stage>
-              <substage>60</substage>
+              <stage>PUBLISHED</stage>
             </status>
             <copyright>
               <from>2007</from>
@@ -263,7 +261,7 @@ RSpec.describe RelatonIev do
         </standard-document>
       XML_DOC
       RelatonIev.iev_cleanup(xmldoc, bibdb)
-      expect(xmldoc.to_xml.gsub(/ schema-version="[^"]+"/, ""))
+      expect(xmldoc.root.to_xml.gsub(/ schema-version="[^"]+"/, ""))
         .to be_equivalent_to <<~OUTPUT
           <standard-document>
               <eref citeas="IEC&#xA0;60050-102:2007" bibitemid="IEC60050-102">
@@ -276,13 +274,12 @@ RSpec.describe RelatonIev do
             <references>
             <bibitem id="IEC60050-102-1" type="standard">
             <fetched>#{Date.today}</fetched>
-            <title type="title-main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV)</title>
-            <title type="title-part" format="text/plain" language="en" script="Latn">Part 102: Mathematics -- General concepts and linear algebra</title>
-            <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) - Part 102: Mathematics -- General concepts and linear algebra</title>
+            <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) - Part 102: Mathematics - General concepts and linear algebra</title>
+            <title type="main" format="text/plain" language="fr" script="Latn">Vocabulaire Electrotechnique International (IEV) - Partie 102: Math&#xE9;matiques - Concepts g&#xE9;n&#xE9;raux et alg&#xE8;bre lin&#xE9;aire</title>
             <uri type="src">https://webstore.iec.ch/publication/160</uri>
-            <uri type="obp">/preview/info_iec60050-102%7Bed1.0%7Db.pdf</uri>
+            <uri type="obp">https://webstore.iec.ch/preview/info_iec60050-102{ed1.0}b.pdf</uri>
             <docidentifier type="IEC" primary="true">IEC 60050-102:2007</docidentifier>
-            <docidentifier type="URN">urn:iec:std:iec:60050-102:2007:::en</docidentifier>
+            <docidentifier type="URN">urn:iec:std:iec:60050-102:2007-08:::</docidentifier>
             <date type="published">
               <on>2007-08-27</on>
             </date>
@@ -294,14 +291,14 @@ RSpec.describe RelatonIev do
                 <uri>www.iec.ch</uri>
               </organization>
             </contributor>
-            <edition>1.0</edition>
+            <edition>1</edition>
             <language>en</language>
+            <language>fr</language>
             <script>Latn</script>
-            <abstract format="text/plain" language="en" script="Latn">This part of IEC 60050 gives the general mathematical terminology used in the fields of electricity, electronics and telecommunications, together with basic concepts in linear algebra. It maintains a clear distinction between mathematical concepts and physical concepts, even if some terms are used in both cases. Another part will deal with functions.&#xD;
-          It has the status of a horizontal standard in accordance with IEC Guide 108.</abstract>
+            <abstract format="text/html" language="en" script="Latn">This part of IEC 60050 gives the general mathematical terminology used in the fields of electricity, electronics and telecommunications, together with basic concepts in linear algebra. It maintains a clear distinction between mathematical concepts and physical concepts, even if some terms are used in both cases. Another part will deal with functions.<br/>It has the status of a horizontal standard in accordance with&lt;a href="http://webstore.iec.ch/webstore/webstore.nsf/Artnum_PK/36435?opendocument"&gt;IEC Guide 108.&lt;/&gt;</abstract>
+            <abstract format="text/html" language="fr" script="Latn">Cette partie de la CEI 60050 donne la terminologie math&#xE9;matique g&#xE9;n&#xE9;rale utilis&#xE9;e dans les domaines de l'&#xE9;lectricit&#xE9;, de l'&#xE9;lectronique et des t&#xE9;l&#xE9;communications, ainsi que les concepts fondamentaux d'alg&#xE8;bre lin&#xE9;aire. Elle maintient une distinction nette entre les concepts math&#xE9;matiques et les concepts physiques, m&#xEA;me si certains termes sont employ&#xE9;s dans les deux cas. Une autre partie traitera des fonctions.<br/>Elle a le statut de norme horizontale conform&#xE9;ment au  Guide IEC 108.</abstract>
             <status>
-              <stage>60</stage>
-              <substage>60</substage>
+              <stage>PUBLISHED</stage>
             </status>
             <copyright>
               <from>2007</from>
