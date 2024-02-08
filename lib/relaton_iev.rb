@@ -21,9 +21,8 @@ module RelatonIev
     def links_iev2iec60050part(xmldoc)
       parts = Set.new
       xmldoc.xpath(IEVPATH).each do |x|
-        m = x&.at(".//locality[@type = 'clause']/referenceFrom")&.text
+        m = x.at(".//locality[@type = 'clause']/referenceFrom")&.text
           &.sub(/^(\d+).*$/, "\\1") or next
-
         parts << m
         x["citeas"] = @c.decode(x["citeas"]).sub(/60050/, "60050-#{m}")
         x["bibitemid"] = "IEC60050-#{m}"
@@ -40,16 +39,29 @@ module RelatonIev
     # @param bibdb [Relaton::Db, NilClass]
     # @return [Nokogiri::XML::Element]
     def refs_iev2iec60050part(xml, parts, bibdb = nil)
+      bibdb or return ""
       new_iev = ""
       parts.sort.each do |p|
-        hit = bibdb&.fetch("IEC 60050-#{p}", nil, keep_year: true) or next
+        hit = get_iev_part(bibdb, p) or next
         new_iev += refs_iev2iec60050part1(xml, p, hit)
-        xml.xpath(IEVPATH.gsub(/60050/, "60050-#{p}")).each do |x|
-          x["citeas"] = @c.decode(x["citeas"])
-            .sub(/:2011$/, ":#{hit.date[0].on(:year)}")
-        end
+        update_iev_refs(xml, p, hit)
       end
       new_iev
+    end
+
+    def get_iev_part(bibdb, part)
+      unless hit = bibdb.fetch("IEC 60050-#{part}", nil, keep_year: true)
+        @err << "The IEV document 60050-#{part} that has been cited " \
+                "does not exist"
+      end
+      hit
+    end
+
+    def update_iev_refs(xml, part, hit)
+      xml.xpath(IEVPATH.gsub(/60050/, "60050-#{part}")).each do |x|
+        x["citeas"] = @c.decode(x["citeas"])
+          .sub(/:2011$/, ":#{hit.date[0].on(:year)}")
+      end
     end
 
     def refs_iev2iec60050part1(xmldoc, part, hit)
@@ -68,12 +80,14 @@ module RelatonIev
 
     # @param xmldoc [Nokogiri::XML::Document]
     # @param bibdb [Relaton::Db, NilClass]
-    # @return [Nokogiri::XML::Element]
+    # @return [Nokogiri::XML::Element], [String]
     def iev_cleanup(xmldoc, bibdb = nil)
       @c = HTMLEntities.new
-      iev = xmldoc.at("//bibitem[docidentifier = 'IEC 60050:2011']") || return
+      @err = []
+      iev = xmldoc.at("//bibitem[docidentifier = 'IEC 60050:2011']") or
+        return [nil, @err]
       parts = links_iev2iec60050part(xmldoc)
-      iev.replace(refs_iev2iec60050part(xmldoc, parts, bibdb))
+      [iev.replace(refs_iev2iec60050part(xmldoc, parts, bibdb)), @err]
     end
   end
 end
