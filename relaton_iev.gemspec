@@ -29,11 +29,11 @@ Gem::Specification.new do |spec|
   # spec.add_development_dependency "ruby-debug-ide"
   spec.add_development_dependency "equivalent-xml", "~> 0.6"
   spec.add_development_dependency "simplecov"
-  spec.add_development_dependency "uuidtools"
   spec.add_development_dependency "vcr"
   spec.add_development_dependency "webmock"
 
   spec.add_dependency "htmlentities", "~> 4.3.4"
   spec.add_dependency "nokogiri", ">= 1.13.0"
   spec.add_dependency "relaton", ">= 1.15"
+  spec.add_dependency "uuidtools"
 end
