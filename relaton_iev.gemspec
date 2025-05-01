@@ -29,6 +29,7 @@ Gem::Specification.new do |spec|
   # spec.add_development_dependency "ruby-debug-ide"
   spec.add_development_dependency "equivalent-xml", "~> 0.6"
   spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "uuidtools"
   spec.add_development_dependency "vcr"
   spec.add_development_dependency "webmock"
 

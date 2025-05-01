@@ -1,6 +1,7 @@
 require "relaton"
 require "relaton_iev/version"
 require "htmlentities"
+require "uuidtools"
 
 module RelatonIev
   class Error < StandardError; end
@@ -66,10 +67,9 @@ module RelatonIev
 
     def refs_iev2iec60050part1(xmldoc, part, hit)
       date = hit.date[0].on(:year)
-      return "" if already_contains_ref(xmldoc, part, date)
-
+      already_contains_ref(xmldoc, part, date) and return ""
       id = xmldoc.at("//bibitem[@id = 'IEC60050-#{part}']") ? "-1" : ""
-      hit.to_xml.sub(/ id="[^"]+"/, %{ id="IEC60050-#{part}#{id}"})
+      hit.to_xml.sub(/ id="[^"]+"/, %{ id="_#{UUIDTools::UUID.random_create}" anchor="IEC60050-#{part}#{id}"})
     end
 
     def already_contains_ref(xmldoc, part, date)
