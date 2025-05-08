@@ -35,4 +35,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "htmlentities", "~> 4.3.4"
   spec.add_dependency "nokogiri", ">= 1.13.0"
   spec.add_dependency "relaton", ">= 1.15"
+  spec.add_dependency "uuidtools"
 end
