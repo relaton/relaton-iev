@@ -58,15 +58,22 @@ module RelatonIev
       hit
     end
 
+    # Extract 4-digit year string from a Relaton::Bib::Date object.
+    # In Relaton 1.x this was date.on(:year); in 2.x Date#on is gone —
+    # use Date#at (returns StringDate::Value) and slice the year prefix.
+    def date_year(date_obj)
+      date_obj&.at&.to_s&.[](0, 4)
+    end
+
     def update_iev_refs(xml, part, hit)
       xml.xpath(IEVPATH.gsub(/60050/, "60050-#{part}")).each do |x|
         x["citeas"] = @c.decode(x["citeas"])
-          .sub(/:2011$/, ":#{hit.date[0].on(:year)}")
+          .sub(/:2011$/, ":#{date_year(Array(hit.date)[0])}")
       end
     end
 
     def refs_iev2iec60050part1(xmldoc, part, hit)
-      date = hit.date[0].on(:year)
+      date = date_year(Array(hit.date)[0])
       already_contains_ref(xmldoc, part, date) and return ""
       id = xmldoc.at("//bibitem[@id = 'IEC60050-#{part}']") ? "-1" : ""
       hit.to_xml.sub(/ id="[^"]+"/, %{ id="_#{UUIDTools::UUID.random_create}" anchor="IEC60050-#{part}#{id}"})

@@ -32,12 +32,12 @@ RSpec.describe RelatonIev do
            </eref>
          <bibitem id="_" anchor="IEC60050-102" type="standard">
          <fetched/>
-         <title type="title-main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV)</title>
-         <title type="title-part" format="text/plain" language="en" script="Latn">Part 102: Mathematics -- General concepts and linear algebra</title>
-         <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) - Part 102: Mathematics -- General concepts and linear algebra</title>
-         <title type="title-main" format="text/plain" language="fr" script="Latn">Vocabulaire Electrotechnique International (IEV)</title>
-         <title type="title-part" format="text/plain" language="fr" script="Latn">Partie 102: Math&#xE9;matiques -- Concepts g&#xE9;n&#xE9;raux et alg&#xE8;bre lin&#xE9;aire</title>
-         <title type="main" format="text/plain" language="fr" script="Latn">Vocabulaire Electrotechnique International (IEV) - Partie 102: Math&#xE9;matiques -- Concepts g&#xE9;n&#xE9;raux et alg&#xE8;bre lin&#xE9;aire</title>
+         <title language="en" script="Latn" type="title-main">International Electrotechnical Vocabulary (IEV)</title>
+         <title language="en" script="Latn" type="title-part">Part 102: Mathematics -- General concepts and linear algebra</title>
+         <title language="en" script="Latn" type="main">International Electrotechnical Vocabulary (IEV) - Part 102: Mathematics -- General concepts and linear algebra</title>
+         <title language="fr" script="Latn" type="title-main">Vocabulaire Electrotechnique International (IEV)</title>
+         <title language="fr" script="Latn" type="title-part">Partie 102: Math&#xE9;matiques -- Concepts g&#xE9;n&#xE9;raux et alg&#xE8;bre lin&#xE9;aire</title>
+         <title language="fr" script="Latn" type="main">Vocabulaire Electrotechnique International (IEV) - Partie 102: Math&#xE9;matiques -- Concepts g&#xE9;n&#xE9;raux et alg&#xE8;bre lin&#xE9;aire</title>
          <uri type="src">https://webstore.iec.ch/publication/160</uri>
          <uri type="obp">https://webstore.iec.ch/preview/info_iec60050-102{ed1.0}b.pdf</uri>
          <docidentifier type="IEC" primary="true">IEC 60050-102:2007</docidentifier>
@@ -48,17 +48,32 @@ RSpec.describe RelatonIev do
          <contributor>
            <role type="publisher"/>
            <organization>
-             <name>International Electrotechnical Commission</name>
-             <abbreviation>IEC</abbreviation>
-             <uri>www.iec.ch</uri>
+             <name language="en" script="Latn">International Electrotechnical Commission</name>
+             <abbreviation language="en" script="Latn">IEC</abbreviation>
+             <uri type="org">www.iec.ch</uri>
+           </organization>
+         </contributor>
+         <contributor>
+           <role type="author">
+             <description>committee</description>
+           </role>
+           <organization>
+             <name language="en" script="Latn">International Electrotechnical Commission</name>
+             <subdivision type="technical-committee">
+               <name language="en" script="Latn">TC 1</name>
+               <identifier>1</identifier>
+             </subdivision>
+             <abbreviation language="en" script="Latn">IEC</abbreviation>
            </organization>
          </contributor>
          <edition>1</edition>
          <language>en</language>
          <language>fr</language>
          <script>Latn</script>
-         <abstract format="text/html" language="en" script="Latn">This part of IEC 60050 gives the general mathematical terminology used in the fields of electricity, electronics and telecommunications, together with basic concepts in linear algebra. It maintains a clear distinction between mathematical concepts and physical concepts, even if some terms are used in both cases. Another part will deal with functions.<br/>It has the status of a horizontal standard in accordance with IEC Guide 108.</abstract>
-         <abstract format="text/html" language="fr" script="Latn">Cette partie de la CEI 60050 donne la terminologie math&#xE9;matique g&#xE9;n&#xE9;rale utilis&#xE9;e dans les domaines de l'&#xE9;lectricit&#xE9;, de l'&#xE9;lectronique et des t&#xE9;l&#xE9;communications, ainsi que les concepts fondamentaux d'alg&#xE8;bre lin&#xE9;aire. Elle maintient une distinction nette entre les concepts math&#xE9;matiques et les concepts physiques, m&#xEA;me si certains termes sont employ&#xE9;s dans les deux cas. Une autre partie traitera des fonctions.<br/>Elle a le statut de norme horizontale conform&#xE9;ment au Guide IEC 108.</abstract>
+         <abstract language="en" script="Latn">This part of IEC 60050 gives the general mathematical terminology used in the fields of electricity, electronics and telecommunications, together with basic concepts in linear algebra. It maintains a clear distinction between mathematical concepts and physical concepts, even if some terms are used in both cases. Another part will deal with functions.<br/>
+       It has the status of a horizontal standard in accordance with IEC Guide 108.</abstract>
+         <abstract language="fr" script="Latn">Cette partie de la CEI 60050 donne la terminologie math&#xE9;matique g&#xE9;n&#xE9;rale utilis&#xE9;e dans les domaines de l'&#xE9;lectricit&#xE9;, de l'&#xE9;lectronique et des t&#xE9;l&#xE9;communications, ainsi que les concepts fondamentaux d'alg&#xE8;bre lin&#xE9;aire. Elle maintient une distinction nette entre les concepts math&#xE9;matiques et les concepts physiques, m&#xEA;me si certains termes sont employ&#xE9;s dans les deux cas. Une autre partie traitera des fonctions.<br/>
+       Elle a le statut de norme horizontale conform&#xE9;ment au Guide IEC 108.</abstract>
          <status>
            <stage>PUBLISHED</stage>
          </status>
@@ -66,13 +81,15 @@ RSpec.describe RelatonIev do
            <from>2007</from>
            <owner>
              <organization>
-               <name>International Electrotechnical Commission</name>
-               <abbreviation>IEC</abbreviation>
-               <uri>www.iec.ch</uri>
+               <name language="en" script="Latn">International Electrotechnical Commission</name>
+               <abbreviation language="en" script="Latn">IEC</abbreviation>
+               <uri type="org">www.iec.ch</uri>
              </organization>
            </owner>
          </copyright>
-         <place>Geneva</place>
+         <place>
+           <city>Geneva</city>
+         </place>
        </bibitem>
          <sections/>
        </standard-document>
@@ -182,12 +199,12 @@ RSpec.describe RelatonIev do
          <references>
          <bibitem id="_" anchor="IEC60050-102" type="standard">
          <fetched/>
-         <title type="title-main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV)</title>
-         <title type="title-part" format="text/plain" language="en" script="Latn">Part 102: Mathematics -- General concepts and linear algebra</title>
-         <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) - Part 102: Mathematics -- General concepts and linear algebra</title>
-         <title type="title-main" format="text/plain" language="fr" script="Latn">Vocabulaire Electrotechnique International (IEV)</title>
-         <title type="title-part" format="text/plain" language="fr" script="Latn">Partie 102: Math&#xE9;matiques -- Concepts g&#xE9;n&#xE9;raux et alg&#xE8;bre lin&#xE9;aire</title>
-         <title type="main" format="text/plain" language="fr" script="Latn">Vocabulaire Electrotechnique International (IEV) - Partie 102: Math&#xE9;matiques -- Concepts g&#xE9;n&#xE9;raux et alg&#xE8;bre lin&#xE9;aire</title>
+         <title language="en" script="Latn" type="title-main">International Electrotechnical Vocabulary (IEV)</title>
+         <title language="en" script="Latn" type="title-part">Part 102: Mathematics -- General concepts and linear algebra</title>
+         <title language="en" script="Latn" type="main">International Electrotechnical Vocabulary (IEV) - Part 102: Mathematics -- General concepts and linear algebra</title>
+         <title language="fr" script="Latn" type="title-main">Vocabulaire Electrotechnique International (IEV)</title>
+         <title language="fr" script="Latn" type="title-part">Partie 102: Math&#xE9;matiques -- Concepts g&#xE9;n&#xE9;raux et alg&#xE8;bre lin&#xE9;aire</title>
+         <title language="fr" script="Latn" type="main">Vocabulaire Electrotechnique International (IEV) - Partie 102: Math&#xE9;matiques -- Concepts g&#xE9;n&#xE9;raux et alg&#xE8;bre lin&#xE9;aire</title>
          <uri type="src">https://webstore.iec.ch/publication/160</uri>
          <uri type="obp">https://webstore.iec.ch/preview/info_iec60050-102{ed1.0}b.pdf</uri>
          <docidentifier type="IEC" primary="true">IEC 60050-102:2007</docidentifier>
@@ -198,17 +215,32 @@ RSpec.describe RelatonIev do
          <contributor>
            <role type="publisher"/>
            <organization>
-             <name>International Electrotechnical Commission</name>
-             <abbreviation>IEC</abbreviation>
-             <uri>www.iec.ch</uri>
+             <name language="en" script="Latn">International Electrotechnical Commission</name>
+             <abbreviation language="en" script="Latn">IEC</abbreviation>
+             <uri type="org">www.iec.ch</uri>
+           </organization>
+         </contributor>
+         <contributor>
+           <role type="author">
+             <description>committee</description>
+           </role>
+           <organization>
+             <name language="en" script="Latn">International Electrotechnical Commission</name>
+             <subdivision type="technical-committee">
+               <name language="en" script="Latn">TC 1</name>
+               <identifier>1</identifier>
+             </subdivision>
+             <abbreviation language="en" script="Latn">IEC</abbreviation>
            </organization>
          </contributor>
          <edition>1</edition>
          <language>en</language>
          <language>fr</language>
          <script>Latn</script>
-         <abstract format="text/html" language="en" script="Latn">This part of IEC 60050 gives the general mathematical terminology used in the fields of electricity, electronics and telecommunications, together with basic concepts in linear algebra. It maintains a clear distinction between mathematical concepts and physical concepts, even if some terms are used in both cases. Another part will deal with functions.<br/>It has the status of a horizontal standard in accordance with IEC Guide 108.</abstract>
-         <abstract format="text/html" language="fr" script="Latn">Cette partie de la CEI 60050 donne la terminologie math&#xE9;matique g&#xE9;n&#xE9;rale utilis&#xE9;e dans les domaines de l'&#xE9;lectricit&#xE9;, de l'&#xE9;lectronique et des t&#xE9;l&#xE9;communications, ainsi que les concepts fondamentaux d'alg&#xE8;bre lin&#xE9;aire. Elle maintient une distinction nette entre les concepts math&#xE9;matiques et les concepts physiques, m&#xEA;me si certains termes sont employ&#xE9;s dans les deux cas. Une autre partie traitera des fonctions.<br/>Elle a le statut de norme horizontale conform&#xE9;ment au Guide IEC 108.</abstract>
+         <abstract language="en" script="Latn">This part of IEC 60050 gives the general mathematical terminology used in the fields of electricity, electronics and telecommunications, together with basic concepts in linear algebra. It maintains a clear distinction between mathematical concepts and physical concepts, even if some terms are used in both cases. Another part will deal with functions.<br/>
+       It has the status of a horizontal standard in accordance with IEC Guide 108.</abstract>
+         <abstract language="fr" script="Latn">Cette partie de la CEI 60050 donne la terminologie math&#xE9;matique g&#xE9;n&#xE9;rale utilis&#xE9;e dans les domaines de l'&#xE9;lectricit&#xE9;, de l'&#xE9;lectronique et des t&#xE9;l&#xE9;communications, ainsi que les concepts fondamentaux d'alg&#xE8;bre lin&#xE9;aire. Elle maintient une distinction nette entre les concepts math&#xE9;matiques et les concepts physiques, m&#xEA;me si certains termes sont employ&#xE9;s dans les deux cas. Une autre partie traitera des fonctions.<br/>
+       Elle a le statut de norme horizontale conform&#xE9;ment au Guide IEC 108.</abstract>
          <status>
            <stage>PUBLISHED</stage>
          </status>
@@ -216,13 +248,15 @@ RSpec.describe RelatonIev do
            <from>2007</from>
            <owner>
              <organization>
-               <name>International Electrotechnical Commission</name>
-               <abbreviation>IEC</abbreviation>
-               <uri>www.iec.ch</uri>
+               <name language="en" script="Latn">International Electrotechnical Commission</name>
+               <abbreviation language="en" script="Latn">IEC</abbreviation>
+               <uri type="org">www.iec.ch</uri>
              </organization>
            </owner>
          </copyright>
-         <place>Geneva</place>
+         <place>
+           <city>Geneva</city>
+         </place>
        </bibitem>
          <bibitem id="A" anchor="IEC60050-102" type="standard">
           <title type="title-main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV)</title>
@@ -272,7 +306,7 @@ RSpec.describe RelatonIev do
       RelatonIev.iev_cleanup(xmldoc, bibdb)
       expect(strip_guid(xmldoc.root.to_xml))
         .to be_equivalent_to <<~OUTPUT
-            <standard-document>
+       <standard-document>
            <eref citeas="IEC&#xA0;60050-102:2007" bibitemid="IEC60050-102">
              <locality type="clause">
              <referenceFrom>102-01-01</referenceFrom>
@@ -283,12 +317,12 @@ RSpec.describe RelatonIev do
          <references>
          <bibitem id="_" anchor="IEC60050-102-1" type="standard">
          <fetched/>
-         <title type="title-main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV)</title>
-         <title type="title-part" format="text/plain" language="en" script="Latn">Part 102: Mathematics -- General concepts and linear algebra</title>
-         <title type="main" format="text/plain" language="en" script="Latn">International Electrotechnical Vocabulary (IEV) - Part 102: Mathematics -- General concepts and linear algebra</title>
-         <title type="title-main" format="text/plain" language="fr" script="Latn">Vocabulaire Electrotechnique International (IEV)</title>
-         <title type="title-part" format="text/plain" language="fr" script="Latn">Partie 102: Math&#xE9;matiques -- Concepts g&#xE9;n&#xE9;raux et alg&#xE8;bre lin&#xE9;aire</title>
-         <title type="main" format="text/plain" language="fr" script="Latn">Vocabulaire Electrotechnique International (IEV) - Partie 102: Math&#xE9;matiques -- Concepts g&#xE9;n&#xE9;raux et alg&#xE8;bre lin&#xE9;aire</title>
+         <title language="en" script="Latn" type="title-main">International Electrotechnical Vocabulary (IEV)</title>
+         <title language="en" script="Latn" type="title-part">Part 102: Mathematics -- General concepts and linear algebra</title>
+         <title language="en" script="Latn" type="main">International Electrotechnical Vocabulary (IEV) - Part 102: Mathematics -- General concepts and linear algebra</title>
+         <title language="fr" script="Latn" type="title-main">Vocabulaire Electrotechnique International (IEV)</title>
+         <title language="fr" script="Latn" type="title-part">Partie 102: Math&#xE9;matiques -- Concepts g&#xE9;n&#xE9;raux et alg&#xE8;bre lin&#xE9;aire</title>
+         <title language="fr" script="Latn" type="main">Vocabulaire Electrotechnique International (IEV) - Partie 102: Math&#xE9;matiques -- Concepts g&#xE9;n&#xE9;raux et alg&#xE8;bre lin&#xE9;aire</title>
          <uri type="src">https://webstore.iec.ch/publication/160</uri>
          <uri type="obp">https://webstore.iec.ch/preview/info_iec60050-102{ed1.0}b.pdf</uri>
          <docidentifier type="IEC" primary="true">IEC 60050-102:2007</docidentifier>
@@ -299,17 +333,32 @@ RSpec.describe RelatonIev do
          <contributor>
            <role type="publisher"/>
            <organization>
-             <name>International Electrotechnical Commission</name>
-             <abbreviation>IEC</abbreviation>
-             <uri>www.iec.ch</uri>
+             <name language="en" script="Latn">International Electrotechnical Commission</name>
+             <abbreviation language="en" script="Latn">IEC</abbreviation>
+             <uri type="org">www.iec.ch</uri>
+           </organization>
+         </contributor>
+         <contributor>
+           <role type="author">
+             <description>committee</description>
+           </role>
+           <organization>
+             <name language="en" script="Latn">International Electrotechnical Commission</name>
+             <subdivision type="technical-committee">
+               <name language="en" script="Latn">TC 1</name>
+               <identifier>1</identifier>
+             </subdivision>
+             <abbreviation language="en" script="Latn">IEC</abbreviation>
            </organization>
          </contributor>
          <edition>1</edition>
          <language>en</language>
          <language>fr</language>
          <script>Latn</script>
-         <abstract format="text/html" language="en" script="Latn">This part of IEC 60050 gives the general mathematical terminology used in the fields of electricity, electronics and telecommunications, together with basic concepts in linear algebra. It maintains a clear distinction between mathematical concepts and physical concepts, even if some terms are used in both cases. Another part will deal with functions.<br/>It has the status of a horizontal standard in accordance with IEC Guide 108.</abstract>
-         <abstract format="text/html" language="fr" script="Latn">Cette partie de la CEI 60050 donne la terminologie math&#xE9;matique g&#xE9;n&#xE9;rale utilis&#xE9;e dans les domaines de l'&#xE9;lectricit&#xE9;, de l'&#xE9;lectronique et des t&#xE9;l&#xE9;communications, ainsi que les concepts fondamentaux d'alg&#xE8;bre lin&#xE9;aire. Elle maintient une distinction nette entre les concepts math&#xE9;matiques et les concepts physiques, m&#xEA;me si certains termes sont employ&#xE9;s dans les deux cas. Une autre partie traitera des fonctions.<br/>Elle a le statut de norme horizontale conform&#xE9;ment au Guide IEC 108.</abstract>
+         <abstract language="en" script="Latn">This part of IEC 60050 gives the general mathematical terminology used in the fields of electricity, electronics and telecommunications, together with basic concepts in linear algebra. It maintains a clear distinction between mathematical concepts and physical concepts, even if some terms are used in both cases. Another part will deal with functions.<br/>
+       It has the status of a horizontal standard in accordance with IEC Guide 108.</abstract>
+         <abstract language="fr" script="Latn">Cette partie de la CEI 60050 donne la terminologie math&#xE9;matique g&#xE9;n&#xE9;rale utilis&#xE9;e dans les domaines de l'&#xE9;lectricit&#xE9;, de l'&#xE9;lectronique et des t&#xE9;l&#xE9;communications, ainsi que les concepts fondamentaux d'alg&#xE8;bre lin&#xE9;aire. Elle maintient une distinction nette entre les concepts math&#xE9;matiques et les concepts physiques, m&#xEA;me si certains termes sont employ&#xE9;s dans les deux cas. Une autre partie traitera des fonctions.<br/>
+       Elle a le statut de norme horizontale conform&#xE9;ment au Guide IEC 108.</abstract>
          <status>
            <stage>PUBLISHED</stage>
          </status>
@@ -317,13 +366,15 @@ RSpec.describe RelatonIev do
            <from>2007</from>
            <owner>
              <organization>
-               <name>International Electrotechnical Commission</name>
-               <abbreviation>IEC</abbreviation>
-               <uri>www.iec.ch</uri>
+               <name language="en" script="Latn">International Electrotechnical Commission</name>
+               <abbreviation language="en" script="Latn">IEC</abbreviation>
+               <uri type="org">www.iec.ch</uri>
              </organization>
            </owner>
          </copyright>
-         <place>Geneva</place>
+         <place>
+           <city>Geneva</city>
+         </place>
        </bibitem>
          <bibitem>
          <bibitem id="IEC60050-102" type="standard">
