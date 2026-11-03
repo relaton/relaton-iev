@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   # spec.add_development_dependency "ruby-debug-ide"
-  spec.add_development_dependency "equivalent-xml", "~> 0.6"
+  spec.add_development_dependency "canon", "~> 0.3"
   spec.add_development_dependency "simplecov"
 
   spec.add_dependency "htmlentities", "~> 4.3.4"
