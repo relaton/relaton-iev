@@ -6,7 +6,7 @@ end
 require "bundler/setup"
 require "relaton_iev"
 require "rspec/matchers"
-require "equivalent-xml"
+require "canon/rspec_matchers"
 
 Dir["./spec/support/**/*.rb"].sort.each { |f| require f }
 

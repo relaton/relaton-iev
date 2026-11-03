@@ -19,10 +19,10 @@ RSpec.describe RelatonIev do
       </standard-document>
     XML_DOC
     xml, err = RelatonIev.iev_cleanup(xmldoc, bibdb)
-    expect(err).to be_equivalent_to []
+    expect(err).to be_xml_equivalent_to []
     expect(xml.first).to be_instance_of Nokogiri::XML::Element
     expect(strip_guid(xmldoc.root.to_xml))
-      .to be_equivalent_to <<~OUTPUT
+      .to be_xml_equivalent_to <<~OUTPUT
         <standard-document>
             <eref citeas="IEC&#xA0;60050-102:2007" bibitemid="IEC60050-102">
               <locality type="clause">
@@ -124,7 +124,7 @@ RSpec.describe RelatonIev do
     XML_DOC
     RelatonIev.iev_cleanup(xmldoc, bibdb)
     expect(xmldoc.to_xml.gsub(/ schema-version="[^"]+"/, ""))
-      .to be_equivalent_to <<~OUTPUT
+      .to be_xml_equivalent_to <<~OUTPUT
         <standard-document>
              <eref citeas="IEC&#xA0;60050-102:2007" bibitemid="IEC60050-102">
                <locality type="clause">
@@ -180,7 +180,7 @@ RSpec.describe RelatonIev do
     XML_DOC
     RelatonIev.iev_cleanup(xmldoc, bibdb)
     expect(strip_guid(xmldoc.root.to_xml))
-      .to be_equivalent_to <<~OUTPUT
+      .to be_xml_equivalent_to <<~OUTPUT
         <standard-document>
             <eref citeas="IEC&#xA0;60050-102:2007" bibitemid="IEC60050-102">
             <localityStack>
@@ -298,7 +298,7 @@ RSpec.describe RelatonIev do
     XML_DOC
     RelatonIev.iev_cleanup(xmldoc, bibdb)
     expect(strip_guid(xmldoc.root.to_xml))
-      .to be_equivalent_to <<~OUTPUT
+      .to be_xml_equivalent_to <<~OUTPUT
         <standard-document>
             <eref citeas="IEC&#xA0;60050-102:2007" bibitemid="IEC60050-102">
               <locality type="clause">
@@ -401,6 +401,6 @@ RSpec.describe RelatonIev do
       </standard-document>
     XML_DOC
     _xml, err = RelatonIev.iev_cleanup(xmldoc, bibdb)
-    expect(err).to be_equivalent_to ["The IEV document 60050-02 that has been cited does not exist"]
+    expect(err).to be_xml_equivalent_to ["The IEV document 60050-02 that has been cited does not exist"]
   end
 end
